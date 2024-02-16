@@ -4,7 +4,7 @@
   1   [[1]]   2  [[1],[1,1]]
  */
 var generate = function (numRows) {
-    let finalArr = []
+    let finalArr = [];
     for (let i = 0; i < numRows; i++) {
         if (i == 0) {
             finalArr.push([1]);
