@@ -33,7 +33,6 @@ public:
             if(i!=(vec.size()-1)){
                 temp->next = new ListNode();
                 temp=temp->next;
-
             }
         }
      
