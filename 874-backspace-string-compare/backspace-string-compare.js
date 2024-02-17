@@ -4,32 +4,36 @@
  * @return {boolean}
  */
 var backspaceCompare = function (s, t) {
-    let i = s.length - 1, j = t.length - 1;
-    let sDel = 0;
-    let tDel = 0;
-    while ((i >= 0 || j >= 0)||( tDel>0 || sDel > 0)) {
-        if ((sDel == 0 && tDel == 0 && s[i] != "#" && t[j] != "#")) {
-            if ((s[i] != t[j]) ) { return false; } else {
+    // single loop to delete the hashes
+    // for, while, do while 
+    let i = s.length - 1;  // indexing for s 
+    let j = t.length - 1; // indexing for t
+    let numberOfHashesInS = 0;
+    let numberOfHashesInT = 0;
+    console.log(s, t)
+    while ((i >= 0 || j >= 0 ) || (numberOfHashesInS>0 || numberOfHashesInT>0)) {
+        if (s[i] != "#" && t[j] != "#" && numberOfHashesInS == 0 && numberOfHashesInT == 0) {
+            if (s[i] != t[j]) {
+                return false;
+            } else {
                 i--;
                 j--;
             }
         }
         if (s[i] == "#") {
-            sDel++;
+            numberOfHashesInS++;
             i--;
-        } else if (sDel > 0) {
+        } else if (numberOfHashesInS > 0) {
             i--;
-            sDel--;
+            numberOfHashesInS--;
         }
-
         if (t[j] == "#") {
-            tDel++;
+            numberOfHashesInT++; //4 - 3  j -1
             j--;
-        } else if (tDel > 0) {
+        } else if (numberOfHashesInT > 0) {
             j--;
-            tDel--;
+            numberOfHashesInT--;
         }
-
     }
     return true;
 };
