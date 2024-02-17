@@ -4,13 +4,10 @@
  * @return {boolean}
  */
 var backspaceCompare = function (s, t) {
-    // single loop to delete the hashes
-    // for, while, do while 
-    let i = s.length - 1;  // indexing for s 
-    let j = t.length - 1; // indexing for t
+    let i = s.length - 1;   
+    let j = t.length - 1;
     let numberOfHashesInS = 0;
     let numberOfHashesInT = 0;
-    console.log(s, t)
     while ((i >= 0 || j >= 0 ) || (numberOfHashesInS>0 || numberOfHashesInT>0)) {
         if (s[i] != "#" && t[j] != "#" && numberOfHashesInS == 0 && numberOfHashesInT == 0) {
             if (s[i] != t[j]) {
@@ -28,7 +25,7 @@ var backspaceCompare = function (s, t) {
             numberOfHashesInS--;
         }
         if (t[j] == "#") {
-            numberOfHashesInT++; //4 - 3  j -1
+            numberOfHashesInT++;
             j--;
         } else if (numberOfHashesInT > 0) {
             j--;
