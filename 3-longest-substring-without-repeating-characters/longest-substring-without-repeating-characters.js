@@ -4,10 +4,7 @@
  */
 var lengthOfLongestSubstring = function (s) {
     let hashMap = {};
-    let i = 0;
-    let startIndex = 0;
-    let longestLength = 0;
-    let currLength = 0;
+    let i = 0,startIndex =0, longestLength = 0, currLength = 0;
     while (i < s.length) {
         if (!hashMap.hasOwnProperty(s[i])|| hashMap[s[i]]<startIndex) { //nomatch
             currLength++;
