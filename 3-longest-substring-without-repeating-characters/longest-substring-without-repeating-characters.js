@@ -3,7 +3,7 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-     if(s.length <= 1) return s.length;
+    if(s.length <= 1) return s.length;
     let hashMap = {};
     let i = 0;
     let startIndex = 0;
