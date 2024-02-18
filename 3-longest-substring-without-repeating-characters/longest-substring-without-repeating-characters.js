@@ -19,7 +19,6 @@ var lengthOfLongestSubstring = function (s) {
             }
             currLength = 0;
             startIndex = hashMap[s[i]] + 1;
-            
             hashMap = {}
             i = startIndex;
             if (s.length - i < longestLength) {
@@ -28,7 +27,7 @@ var lengthOfLongestSubstring = function (s) {
         }
     }
     if (currLength > longestLength) {
-        longestLength = currLength;
+        return currLength;
     }
     return longestLength;
 };
