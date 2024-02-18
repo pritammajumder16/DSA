@@ -8,7 +8,7 @@ var lengthOfLongestSubstring = function (s) {
     let startIndex = 0;
     let longestLength = 0;
     let currLength = 0;
-    while (i < s.length) { //1   {d:0}
+    while (i < s.length) { 
         if (!hashMap.hasOwnProperty(s[i])) {
             hashMap[s[i]] = i;
             currLength++;
