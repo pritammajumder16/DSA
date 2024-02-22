@@ -12,27 +12,24 @@
  */
 var levelOrder = function (root) {
     if (!root) return [];
-    const levelOrder = findLevelOrderBFS(root);
-    return levelOrder;
-};
-const findLevelOrderBFS = (node) => {
-    const levelQueue = [node];
+    const levelQueue = [root];
     const treeInArr = []
     while (levelQueue.length != 0) {
         let length = levelQueue.length;
         let count = 0;
         const arr = []
         while (count < length) {
-            let currentNode = levelQueue.shift()
-            arr.push(currentNode.val)
+            let currentNode = levelQueue.shift();
+            arr.push(currentNode.val);
             if (currentNode.left) {
                 levelQueue.push(currentNode.left);
             }
-            if (currentNode.right) levelQueue.push(currentNode.right);
+            if (currentNode.right) { levelQueue.push(currentNode.right); }
             count++;
         }
-        if (arr.length)
+        if (arr.length) {
             treeInArr.push(arr)
+        }
     }
     return treeInArr;
-}
+};
