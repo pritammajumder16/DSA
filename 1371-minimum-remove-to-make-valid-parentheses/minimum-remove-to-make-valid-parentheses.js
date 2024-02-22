@@ -9,15 +9,13 @@ var minRemoveToMakeValid = function (s) {
         if (s[i] == "(") {
             stack.push(i)
         } else if (s[i] == ")") {
-            let charAtPop = stack.pop()
-            if (!charAtPop && charAtPop != 0) {
-                s[i] = "";
-            }
+            if(!stack.length){
+                s[i] = "";}
+                stack.pop()
         }
-
     }
     if (!stack.length == 0) {
-        for (let j = stack.length - 1; j >= 0; j--) {
+        for (let j = 0; j <stack.length; j++) {
             s[stack[j]] = ""
         }
     }
