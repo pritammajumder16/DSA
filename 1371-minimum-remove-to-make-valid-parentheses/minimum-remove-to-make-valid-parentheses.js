@@ -9,12 +9,12 @@ var minRemoveToMakeValid = function (s) {
             stack.push(i)
         } else if (s[i] == ")") {
             let charAtPop = stack.pop()
-            if (!charAtPop && charAtPop !=0) {
+            if (!charAtPop && charAtPop != 0) {
                 s = s.substring(0, i) + s.substring(i + 1, s.length);
                 i--;
             }
         }
-        
+
     }
     if (!stack.length == 0) {
         for (let j = stack.length - 1; j >= 0; j--) {
