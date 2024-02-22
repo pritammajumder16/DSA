@@ -31,8 +31,8 @@ const findLevelOrderBFS = (node) => {
             if (currentNode.right) levelQueue.push(currentNode.right);
             count++;
         }
-        if(arr.length)
-        treeInArr.push(arr)
+        if (arr.length)
+            treeInArr.push(arr)
     }
     return treeInArr;
 }
