@@ -12,7 +12,6 @@ var minRemoveToMakeValid = function (s) {
             let charAtPop = stack.pop()
             if (!charAtPop && charAtPop != 0) {
                 s[i] = "";
-                i--;
             }
         }
 
