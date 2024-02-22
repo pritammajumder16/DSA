@@ -13,11 +13,7 @@
  //BFS SOLUTION
 var rightSideView = function(root) {
     if(!root) return []
-    let rightSideViewArr = calcRightSideView(root)
-    return rightSideViewArr;
-};
-const calcRightSideView = (node)=>{
-    const bfsQueue = [node];
+    const bfsQueue = [root];
     const rightMostValues = []
     while(bfsQueue.length){
         let count = 0;
@@ -38,4 +34,4 @@ const calcRightSideView = (node)=>{
         if(rightMostNode) rightMostValues.push(rightMostNode.val)
     }
     return rightMostValues;
-}
+};
