@@ -12,20 +12,19 @@
  */
 var maxDepth = function(root) {
     if(!root) return null;
-    totalDepth = 0;
-    DFStoFindDepth(root,1);
-    return totalDepth;
+    return DFStoFindDepth(root,0);
 };
-let totalDepth=0;
  //Inorder
 const  DFStoFindDepth=(node,depth)=>{
     if(!node) return;
+    depth++;
+    let leftDepth = depth;
+    let rightDepth = depth;
     if(node.left){
-        DFStoFindDepth(node.left,depth+1)
+        leftDepth = DFStoFindDepth(node.left,depth)
     }
     if(node.right){
-        DFStoFindDepth(node.right,depth+1)
+        rightDepth = DFStoFindDepth(node.right,depth)
     }
-    if(depth>totalDepth) totalDepth = depth;
-    return depth;
+    return Math.max(leftDepth,rightDepth);
  }
