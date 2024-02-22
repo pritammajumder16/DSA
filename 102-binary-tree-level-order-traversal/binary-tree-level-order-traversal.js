@@ -14,7 +14,7 @@ var levelOrder = function (root) {
     if (!root) return [];
     const levelQueue = [root];
     const treeInArr = []
-    while (levelQueue.length != 0) {
+    while (levelQueue.length) {
         let length = levelQueue.length;
         let count = 0;
         const arr = []
