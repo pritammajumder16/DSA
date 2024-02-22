@@ -16,15 +16,9 @@ var maxDepth = function(root) {
 };
  //Inorder
 const  DFStoFindDepth=(node,depth)=>{
-    if(!node) return;
+    if(!node) return depth;
     depth++;
-    let leftDepth = depth;
-    let rightDepth = depth;
-    if(node.left){
-        leftDepth = DFStoFindDepth(node.left,depth)
-    }
-    if(node.right){
-        rightDepth = DFStoFindDepth(node.right,depth)
-    }
+    let leftDepth = DFStoFindDepth(node.left,depth)
+    let rightDepth = DFStoFindDepth(node.right,depth)
     return Math.max(leftDepth,rightDepth);
  }
