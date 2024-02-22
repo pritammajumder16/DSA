@@ -13,7 +13,6 @@
 var levelOrder = function (root) {
     if (!root) return [];
     const levelOrder = findLevelOrderBFS(root);
-    console.log(levelOrder)
     return levelOrder;
 };
 const findLevelOrderBFS = (node) => {
@@ -28,7 +27,6 @@ const findLevelOrderBFS = (node) => {
             arr.push(currentNode.val)
             if (currentNode.left) {
                 levelQueue.push(currentNode.left);
-                treeInArr
             }
             if (currentNode.right) levelQueue.push(currentNode.right);
             count++;
