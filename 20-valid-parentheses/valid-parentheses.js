@@ -9,17 +9,15 @@ var isValid = function (s) {
         "(": ")",
     }
     let keepStack = []
-    for(let i = 0; i < s.length; i++){
-        if (bracketRelations[s[i]]) {
-            keepStack.push(s[i])
+    for(let char of s){
+        if (bracketRelations[char]) {
+            keepStack.push(char)
         } else {
             let correctChar = keepStack.pop()
-            if(s[i] != bracketRelations[correctChar]){
+            if(char != bracketRelations[correctChar]){
                 return false;
             }
         }
     }
-    if(keepStack.length !=0)
-    return false
-    return true;
+    return keepStack.length === 0;
 };
