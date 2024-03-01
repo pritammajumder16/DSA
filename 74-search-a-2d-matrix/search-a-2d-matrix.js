@@ -12,7 +12,6 @@ var searchMatrix = function (matrix, target) {
         const mid = Math.floor((left + right) / 2)
         let row = Math.floor(mid / noOfCols);
         let col = mid - row * noOfCols;
-        console.log(left, right,[row,col], mid)
         if (matrix[row][col] == target) return true;
         if (matrix[row][col] > target) {
             right = mid-1;
