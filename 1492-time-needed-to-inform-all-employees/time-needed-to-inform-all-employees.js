@@ -12,7 +12,6 @@ var numOfMinutes = function(n, headID, manager, informTime) {
         if(manager[i]!=-1){
         adjList[manager[i]].push(i)}
     }
-    console.log(adjList)
     return traverseDFS(headID,adjList,informTime,seen);
 };
 
@@ -23,6 +22,5 @@ const traverseDFS = (currId,adjList,informTime,seen)=>{
     for(let i = 0; i < adjList[currId].length;i++){
         maxCost = Math.max(maxCost,traverseDFS(adjList[currId][i],adjList,informTime,seen))
     }
-    console.log("return", maxCost , currId)
     return maxCost+informTime[currId];
 }
