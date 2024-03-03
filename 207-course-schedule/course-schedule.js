@@ -11,7 +11,6 @@ var canFinish = function(numCourses, prerequisites) {
         adjList[ele[1]].push(ele[0])
         inDegree[ele[0]]++;
     })  
-    console.log(adjList,inDegree)
     let stack = []
     inDegree.forEach((ele,index)=>{
         if(ele == 0)
@@ -26,7 +25,6 @@ var canFinish = function(numCourses, prerequisites) {
             }
         })
     }
-    console.log(inDegree)
     for(let i = 0; i<inDegree.length;i++){
         if(inDegree[i]>0){
             return false
