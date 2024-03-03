@@ -100,7 +100,6 @@ var networkDelayTime = function (times, n, k) {
             }
         })
     }
-    console.log(distances)
     let max = Math.max(...distances) 
     return max===Infinity? -1 : max;
 }
