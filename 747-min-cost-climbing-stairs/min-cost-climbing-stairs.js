@@ -3,21 +3,19 @@
  * @return {number}
  */
 var minCostClimbingStairs = function(cost) {
-    let minCostTable = new Array(cost.length).fill(Infinity)
-    return  Math.min(recursiveFindLowestCost(cost,0,minCostTable),recursiveFindLowestCost(cost,1,minCostTable))
+    let dpOne = cost[0]
+    let dpTwo = cost[1]
+    let minCost=0;
+    if(cost.length==1)return dpOne;
+    if(cost.length==2) return dpOne>dpTwo?dpTwo:dpOne;
+    console.log(0,dpOne)
+    console.log(1,dpTwo)
+    cost.push(0)
+    for(let i = 2 ; i < cost.length; i ++){
+        minCost=cost[i]+Math.min(dpOne,dpTwo);
+        dpOne=dpTwo;
+        dpTwo = minCost;
+        console.log(i,minCost)
+    }
+    return minCost
 };
-const recursiveFindLowestCost = (cost,index,minCostTable)=>{
-    if(index>(cost.length-1)){
-        return 0;
-    }
-    let minCost = 0;
-    if(minCostTable[index]&&minCostTable[index]!=Infinity){
-        minCost = minCostTable[index]
-    }else{
-        minCost = Math.min(recursiveFindLowestCost(cost,index+1,minCostTable),recursiveFindLowestCost(cost,index+2,minCostTable))
-    }
-    if(minCostTable[index]==Infinity){
-        minCostTable[index] = minCost;
-    }
-    return minCost+cost[index]
-}
