@@ -3,8 +3,8 @@
  * @return {boolean}
  */
 var increasingTriplet = function (nums) {
-    let first = Number.MAX_SAFE_INTEGER; 
-    let second = Number.MAX_SAFE_INTEGER; 
+    let first = Infinity; 
+    let second = Infinity; 
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] < first) {
             first = nums[i]
