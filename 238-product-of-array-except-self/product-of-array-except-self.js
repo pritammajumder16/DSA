@@ -9,17 +9,13 @@ var productExceptSelf = function (nums) {
     for (let i = 0, j = nums.length - 1; i < nums.length; i++, j--) {
         if (i == 0)
             productsFromLeft[i] = 1
-        else if (i == 1) {
-            productsFromLeft[i] = nums[i - 1]
-        }
+    
         else {
             productsFromLeft[i] = productsFromLeft[i - 1] * nums[i - 1]
         }
         if (j == nums.length - 1)
             productsFromRight[j] = 1
-        else if (j == nums.length - 2) {
-            productsFromRight[j] = nums[j + 1]
-        }
+
         else {
             productsFromRight[j] = productsFromRight[j + 1] * nums[j + 1]
         }
