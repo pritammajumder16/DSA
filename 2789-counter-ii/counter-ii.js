@@ -8,7 +8,6 @@ var createCounter = function (init) {
         increment: () => ++init,
         decrement: () => --init,
         reset: () => init = initialValue
-
     }
 };
 
