@@ -14,6 +14,6 @@ function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
         }
     });
     map.forEach(item => result.push(item));
-    result.sort((a,b)=>a.id-b.id)
+    result.sort((a, b) => a.id - b.id)
     return result;
 };
