@@ -3,7 +3,7 @@
  * @return {Promise<any>}
  */
 var promiseAll = function (functions) {
-    const myPromise = new Promise(async (res, rej) => {
+    const myPromise = new Promise( (res, rej) => {
         const result = []
         let resolvedPromisesCount = 0;
         functions.forEach((fn, index) => {
