@@ -6,7 +6,7 @@ async function sleep(millis) {
     const myPromise = new Promise((res,rej)=>{
         setTimeout(res,millis)
     })
-    return  await myPromise;
+    return  myPromise;
 }
 
 /** 
