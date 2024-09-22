@@ -4,17 +4,23 @@ class EventEmitter {
      * @param {Function} callback
      * @return {Object}
      */
-    myEvent = new Map();
+    constructor() {
+        this.events = new Map();
+    }
     subscribe(eventName, callback) {
-        if (this.myEvent.has(eventName)) {
-            this.myEvent.set(eventName, [...this.myEvent.get(eventName), callback])
+        if (this.events.has(eventName)) {
+            this.events.set(eventName, [...this.events.get(eventName), callback])
         } else
-            this.myEvent.set(eventName, [callback])
+            this.events.set(eventName, [callback])
         return {
             unsubscribe: () => {
-                if (this.myEvent.has(eventName)) {
-                    const newFns = this.myEvent.get(eventName).filter(fn => fn != callback)
-                    this.myEvent.set(eventName, newFns)
+                if (this.events.has(eventName)) {
+                    const newFns = this.events.get(eventName).filter(fn => fn != callback)
+                    if (newFns.length > 0) {
+                        this.events.set(eventName, newFns);
+                    } else {
+                        this.events.delete(eventName);
+                    }
                 }
             }
         };
@@ -27,8 +33,8 @@ class EventEmitter {
      */
     emit(eventName, args = []) {
         const result = []
-        if (this.myEvent.has(eventName)) {
-            const fns = this.myEvent.get(eventName)
+        if (this.events.has(eventName)) {
+            const fns = this.events.get(eventName)
             fns.forEach(fn => {
                 result.push(fn(...args))
             })
