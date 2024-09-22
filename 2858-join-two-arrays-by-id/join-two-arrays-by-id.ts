@@ -2,8 +2,6 @@ type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string
 type ArrayType = { "id": number } & Record<string, JSONValue>;
 
 function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
-    const minLength: number = Math.min(arr1.length, arr2.length)
-    let i: number = 0;
     const map = new Map<number, ArrayType>();
     arr2.forEach(item => map.set(item.id, item));
     let result: ArrayType[] = []
