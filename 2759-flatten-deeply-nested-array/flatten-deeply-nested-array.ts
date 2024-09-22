@@ -4,7 +4,7 @@ var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArr
     const finalArr = []
     if (Array.isArray(arr)) {
         arr.forEach(item => {
-            if (Array.isArray(item) && n > 0) {
+            if ( n > 0&&Array.isArray(item)) {
                 finalArr.push(...flat(item, n - 1))
             } else {
                 finalArr.push(item)
